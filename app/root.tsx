@@ -1,3 +1,5 @@
+import Navbar from "./components/navbar";
+
 import {
   isRouteErrorResponse,
   Links,
@@ -42,7 +44,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <div>
+      <Navbar />
+      <Outlet />
+    </div>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
