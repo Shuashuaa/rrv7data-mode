@@ -1,0 +1,27 @@
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router";
+import "./index.css";
+import App from "./App.tsx";
+import About from "./pages/About.tsx";
+import NotFound from "./pages/NotFound.tsx";
+
+createRoot(document.getElementById("root")!).render(
+  <StrictMode>
+    <BrowserRouter>
+      <Routes>
+        {/* <Route path="/" element={<App />} /> */}
+        <Route index element={<App />} />
+        <Route path="about" element={<About />} />
+
+        {/* <Route path="concerts">
+          <Route index element={<ConcertsHome />} />
+          <Route path=":city" element={<City />} />
+          <Route path="trending" element={<Trending />} />
+        </Route> */}
+        
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
+  </StrictMode>
+);
