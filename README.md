@@ -65,3 +65,7 @@ plugins: [
   tailwindcss()
 ],
 ```
+### App.css
+```
+@import "tailwindcss";
+```
