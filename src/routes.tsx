@@ -1,33 +1,36 @@
 import { createBrowserRouter } from "react-router";
-
-import Layout from "./components/Layout";
-import App from "./App";
-import About from "./components/About";
-import NotFound from "./components/NotFound";
-// import ConcertsHome from "./components/Concerts";
-// import ConcertsCity from "./components/ConcertsCity";
-// import ConcertsTrending from "./components/ConcertsTrending";
+import { Suspense } from "react";
+import Layout from "./pages/Layout";
+import App from "./pages/App";
+import About from "./pages/About";
+import NotFound from "./pages/NotFound";
+import Countries, { countriesLoader } from "./pages/Countries";
+import Country, { CountryError, countryLoader } from "./pages/Country";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />, // Layout wraps routes with Navbar/Footer
+    Component: Layout, // Layout wraps routes with Navbar/Footer
     children: [
-      { index: true, element: <App /> },
-      { path: "about", element: <About /> },
-      // {
-      //   path: "concerts",
-      //   children: [
-      //     { index: true, element: <ConcertsHome /> },
-      //     { path: ":city", element: <ConcertsCity /> },
-      //     { path: "trending", element: <ConcertsTrending /> },
-      //   ]
-      // },
+      { index: true, Component: App },
+      { path: "about", Component: About },
+      {
+        path: "countries",
+        children: [
+          { index: true, loader: countriesLoader, Component: () => (
+            <Suspense fallback={<div>Loading...</div>}>
+              <Countries />
+            </Suspense>
+          ) },
+          { path: ":countryName", loader: countryLoader, Component: Country, errorElement: <CountryError /> },
+          // { path: "trending", Component: <ConcertsTrending /> },
+        ]
+      },
     ],
   },
   {
     path: "*",
-    element: <NotFound />,
+    Component: NotFound,
   },
 ]);
 
