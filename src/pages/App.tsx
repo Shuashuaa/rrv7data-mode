@@ -48,7 +48,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="w-full md:w-1/2">
+          <div className="w-full md:w-1/2 mt-5">
             <div className="overflow-hidden rounded-md shadow-xl">
               <img
                 src="https://images.ctfassets.net/dlbjkw4rng8s/5HRuy1n3M3rnbUbsYOpAYW/1e5dfbd85bcd45e1915d0b4b3a4a2edb/https___images.prismic.io_all-remote-content_19774671-8ad3-4c76-b6d3-a200077f0947_philippines.jpg?fm=webp&w=3840&q=75"
