@@ -1,4 +1,5 @@
 import { Link, useLoaderData } from "react-router";
+import { MoveLeft } from 'lucide-react';
 
 export async function countryLoader({ params }: { params: { countryName?: string } }) {
     const countryName = params.countryName;
@@ -23,8 +24,11 @@ export default function Country() {
         <>
             {countryData.length > 0 ?(
                 <div className="p-5">
-                    <h1>asdasd</h1>
-                    <div className="flex gap-10">
+                    <Link to="/countries" className="border border-slate-400 hover:shadow-lg transition p-2 inline-flex items-center rounded-full">
+                        <MoveLeft className="text-slate-500 w-6 h-6" />
+                    </Link>
+
+                    <div className="flex flex-col md:flex-row gap-10 mt-10">
                         <div>
                             <img src={countryData[0].flags.png} alt="" />
                             <h1 className="text-xl font-bold">{countryData[0].name.common}</h1>
