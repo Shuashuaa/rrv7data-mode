@@ -22,7 +22,7 @@ export default function Country() {
     
     return (
         <>
-            {countryData.length > 0 ?(
+            {countryData.length > 0 ? (
                 <div className="p-5">
                     <Link to="/countries" className="border border-slate-400 hover:shadow-lg transition p-2 inline-flex items-center rounded-full">
                         <MoveLeft className="text-slate-500 w-6 h-6" />
