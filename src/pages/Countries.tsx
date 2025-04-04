@@ -29,6 +29,7 @@ export default function Countries() {
   );
 
   return (
+
     <div className="p-4">
       <h1 className="text-md">Filters</h1>
 
@@ -56,20 +57,25 @@ export default function Countries() {
 
       <h1 className="text-xl font-bold mt-4">Countries</h1>
       
-      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {filteredCountries.sort((a: any, b: any) => a.name.common.localeCompare(b.name.common))
-          .map((country: any) => (
-            <li key={country.cca3} className="border border-slate-500 rounded-md shadow py-2 px-3 cursor-pointer hover:shadow-lg transition">
-              <Link to={country.name.common}>
-                <h1 className="font-bold text-green-600">{country.name.common}</h1>
-                <div>
-                  <p className="text-sm">Region: {country.region}</p>
-                  <p className="text-sm">Population: {country.population.toLocaleString()}</p>
-                </div>
-              </Link>
-            </li>
-          ))}
-      </ul>
+      { filteredCountries.length > 0 ? (
+        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {filteredCountries.sort((a: any, b: any) => a.name.common.localeCompare(b.name.common))
+            .map((country: any) => (
+              <li key={country.cca3} className="border border-slate-500 rounded-md shadow py-2 px-3 cursor-pointer hover:shadow-lg transition">
+                <Link to={country.name.common}>
+                  <h1 className="font-bold text-green-600">{country.name.common}</h1>
+                  <div>
+                    <p className="text-sm">Region: {country.region}</p>
+                    <p className="text-sm">Population: {country.population.toLocaleString()}</p>
+                  </div>
+                </Link>
+              </li>
+            ))}
+        </ul>
+      ) : (
+        <p>Loading...</p>
+      )}
+      
     </div>
   );
 }

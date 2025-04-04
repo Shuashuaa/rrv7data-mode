@@ -6,10 +6,10 @@ export default function About() {
                 About This Website
             </h1>
             <p className="text-xl text-gray-700 leading-relaxed mb-4">
-                This website uses the{" "}
+                This website uses the
                 <span className="font-semibold text-green-600">
                 REST Countries API
-                </span>{" "}
+                </span>
                 to display comprehensive information about countries from around the
                 world.
             </p>
